@@ -43,6 +43,7 @@ Runs daily via **GitHub Actions**. Zero maintenance once set up.
 - Add the bot as a member of the discussion group
 
 ### 3. Get your IDs
+| What | Value |
 |---|---|
 | Bot token | From [@BotFather](https://t.me/BotFather) |
 | Channel ID | `@yourchannel` or numeric ID |
