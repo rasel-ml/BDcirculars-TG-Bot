@@ -47,7 +47,7 @@ Runs daily via **GitHub Actions**. Zero maintenance once set up.
 |---|---|
 | Bot token | From [@BotFather](https://t.me/BotFather) |
 | Channel ID | `@yourchannel` or numeric ID |
-| Group ID | `@yourgroup` numeric ID |
+| Group ID | `@yourgroup` or numeric ID |
 | Your User ID | `@yourprofile` or numeric ID |
 
 - You can use [@userinfobot](https://t.me/userinfobot) to get your User/Channel/Group ID easily.
