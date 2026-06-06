@@ -2,12 +2,14 @@ name: RSS Telegram Bot
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # 10:30 AM Bangladesh Standard Time (UTC+6)
+    - cron: "0 6 * * *"   # 12:00 AM Bangladesh Standard Time (UTC+6)
   workflow_dispatch:        # allows manual trigger from GitHub Actions UI
 
 jobs:
   post:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     permissions:
       contents: write       # needed to commit seen_items.json back to the repo
