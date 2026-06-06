@@ -1,0 +1,48 @@
+name: RSS Telegram Bot
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # 10:30 AM Bangladesh Standard Time (UTC+6)
+  workflow_dispatch:        # allows manual trigger from GitHub Actions UI
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write       # needed to commit seen_items.json back to the repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ hashFiles('requirements.txt') }}
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run RSS bot
+        env:
+          TG_BOT_TOKEN:          ${{ secrets.TG_BOT_TOKEN_AA }}
+          TG_CHANNEL_ID:         ${{ secrets.TG_CHANNEL_ID_AA }}
+          TG_GROUP_ID:           ${{ secrets.TG_GROUP_ID_AA }}
+          TG_ADMIN_ID:           ${{ secrets.TG_ADMIN_ID_AA }}
+          RSS_URL:                ${{ secrets.RSS_URL_AA }}
+        run: python rss-to-telegram-bot.py
+
+      - name: Save seen_items.json back to repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add seen_items.json
+          git diff --cached --quiet || git commit -m "chore: update seen_items [skip ci]"
+          git push
