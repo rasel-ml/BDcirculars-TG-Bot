@@ -383,6 +383,7 @@ async def send_dm_report(bot: Bot, posted: int, skipped: int) -> None:
             chat_id=ADMIN_ID,
             text="\n".join(lines),
             parse_mode=ParseMode.HTML,
+            disable_notification=True,
         )
     except TelegramError as e:
         log.error("Could not send DM report: %s", e)

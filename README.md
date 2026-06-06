@@ -10,9 +10,8 @@ Runs daily via **GitHub Actions**. Zero maintenance once set up.
 
 - 📷 **Images only** — skips text-only posts
 - 🖼️ **Media groups** — posts up to 10 images per entry as an album
-- ✂️ **Smart caption split** — if caption exceeds Telegram's 1024-char limit, splits at a natural linebreak and posts the rest as a comment with **বাকি অংশ কমেন্টে...**
+- ✂️ **Smart caption split** — if caption exceeds Telegram's 1024-char limit, splits at a natural linebreak and posts the rest as a comment
 - 💬 **Comment overflow** — extra images (beyond 10) are posted as replies in the discussion group
-- 🧹 **Auto-cleans** FetchRSS attribution from posts
 - 🗂️ **Seen-items tracking** — never reposts the same entry; file stays small by auto-trimming old hashes
 - 📩 **DM report** — sends you a summary (posted / skipped / errors) after every run
 - ⏰ **Scheduled via GitHub Actions** — runs once daily, no server needed
@@ -44,12 +43,12 @@ Runs daily via **GitHub Actions**. Zero maintenance once set up.
 - Add the bot as a member of the discussion group
 
 ### 3. Get your IDs
-| What | How |
-|---|---|
-| Bot token | From @BotFather |
-| Channel ID | `@yourchannel` or numeric ID from [@userinfobot](https://t.me/userinfobot) |
-| Group ID | Forward any group message to @userinfobot |
-| Your user ID | Message @userinfobot directly |
+| Bot token | From [@BotFather](https://t.me/BotFather) |
+| Channel ID | `@yourchannel` or numeric ID |
+| Group ID | numeric ID |
+| Your User ID | `@yourprofile` or numeric ID |
+
+- You can use [@userinfobot](https://t.me/userinfobot) to get your User/Channel/Group ID easily.
 
 ### 4. Add GitHub Secrets
 Go to your repo → **Settings → Secrets and variables → Actions → New repository secret**
@@ -60,7 +59,7 @@ Go to your repo → **Settings → Secrets and variables → Actions → New rep
 | `TG_CHANNEL_ID` | Your channel ID |
 | `TG_GROUP_ID` | Linked discussion group ID |
 | `TG_ADMIN_ID` | Your personal Telegram user ID |
-| `RSS_URL` | Your FetchRSS feed URL |
+| `RSS_URL` | Your feed URL |
 
 ### 5. Create an empty seen_items.json
 ```bash
