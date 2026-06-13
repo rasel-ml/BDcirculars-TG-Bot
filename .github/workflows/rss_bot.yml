@@ -3,16 +3,13 @@ name: RSS Telegram Bot
 on:
   schedule:
     - cron: "0 */6 * * *"   # Run every 6 hours
-  workflow_dispatch:        # allows manual trigger from GitHub Actions
+  workflow_dispatch:      # allows manual trigger from GitHub Actions
 
 jobs:
   post:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     permissions:
-      contents: write       # needed to commit seen_items.json back to the repo
+      contents: write    # needed to commit seen_items.json back to the repo
 
     steps:
       - name: Checkout repo
@@ -34,8 +31,8 @@ jobs:
 
       - name: Run RSS bot
         env:
-          TG_BOT_TOKEN:          ${{ secrets.TG_BOT_TOKEN_AA }}
-          TG_CHANNEL_ID:         ${{ secrets.TG_CHANNEL_ID_AA }}
+          TG_BOT_TOKEN:         ${{ secrets.TG_BOT_TOKEN_AA }}
+          TG_CHANNEL_ID:        ${{ secrets.TG_CHANNEL_ID_AA }}
           TG_GROUP_ID:           ${{ secrets.TG_GROUP_ID_AA }}
           TG_ADMIN_ID:           ${{ secrets.TG_ADMIN_ID_AA }}
           RSS_URL:                ${{ secrets.RSS_URL_AA }}
@@ -46,5 +43,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add seen_items.json
-          git diff --cached --quiet || git commit -m "chore: update seen_items [skip ci]"
+          git diff --cached --quiet || git commit -m "Update seen_items.json"
           git push

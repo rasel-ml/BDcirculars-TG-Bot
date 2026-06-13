@@ -22,7 +22,7 @@ MAX_MESSAGE_LENGTH  = 4096
 MAX_IMAGES_PER_POST = 10
 
 _SUFFIX_VISIBLE = "\nবাকি অংশ কমেন্টে..."
-_SUFFIX_HTML    = "\n<b>বাকি অংশ কমেন্টে...</b>"
+_SUFFIX_HTML  = "\n<b>বাকি অংশ কমেন্টে...</b>"
 
 # ─────────────────────────────────────────────
 #  LOGGING  (console only — errors go to DM)

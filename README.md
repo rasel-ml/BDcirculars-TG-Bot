@@ -14,7 +14,7 @@ Runs daily via **GitHub Actions**. Zero maintenance once set up.
 - 💬 **Comment overflow** — extra images (beyond 10) are posted as replies in the discussion group
 - 🗂️ **Seen-items tracking** — never reposts the same entry; file stays small by auto-trimming old hashes
 - 📩 **DM report** — sends you a summary (posted / skipped / errors) after every run
-- ⏰ **Scheduled via GitHub Actions** — runs once daily, no server needed
+- ⏰ **Scheduled via GitHub Actions** — runs three times daily
 
 ---
 
